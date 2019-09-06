@@ -24,7 +24,7 @@
 
 static struct
 {
-	char* s;
+	const char* s;
 	float f;
 } t[] = {
 	// 2^-149 * 0.5 - eps

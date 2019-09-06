@@ -24,7 +24,7 @@
 
 static struct
 {
-	char* s;
+	const char* s;
 	double f;
 } t[] = {
 	{"0", 0.0},
@@ -97,7 +97,6 @@ static void strtod_test(void** state)
 	for(unsigned long i = 0; i < length(t); i++)
 	{
 		x = strtod(t[i].s, &p);
-		// printf("%d: %1.30f == %1.30f\n", i, x, t[i].f);
 		assert_true(fabs(x - t[i].f) < epsilon);
 	}
 }
