@@ -328,7 +328,6 @@ libc_dep = declare_dependency(
 	],
 	include_directories: [libc_system_includes, target_arch_include],
 	compile_args: stdlib_compiler_flags,
-	dependencies: target_arch_deps,
 )
 
 libc_native_dep = declare_dependency(
@@ -339,7 +338,6 @@ libc_native_dep = declare_dependency(
 	include_directories: [libc_system_includes, native_arch_include],
 	compile_args: stdlib_compiler_flags + native_stdlib_compiler_flags,
 	link_args: native_stdlib_link_flags,
-	dependencies: native_arch_deps,
 )
 
 libc_hosted_dep = declare_dependency(
@@ -350,7 +348,6 @@ libc_hosted_dep = declare_dependency(
 	include_directories: [libc_system_includes, target_arch_include],
 	compile_args: stdlib_compiler_flags,
 	link_args: stdlib_link_flags,
-	dependencies: target_arch_deps,
 )
 
 libc_header_include = [libc_system_includes, target_arch_include]
