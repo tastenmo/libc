@@ -1,0 +1,27 @@
+# Meson Cross-compilation File for Cortex-M4 processors using Hardware FP
+# This file should be layered after arm.txt
+# Requires that arm-none-eabi-* is found in your PATH
+# For more information: http://mesonbuild.com/Cross-compilation.html
+
+[binaries]
+c = 'clang'
+cpp = 'clang++'
+ar = 'llvm-ar'
+strip = 'llvm-ar'
+
+
+[properties]
+objcopy = 'llvm-objcopy'
+c_args = ['--target=arm-none-eabi', '-mcpu=cortex-m0plus', '-mfloat-abi=soft',  '-mthumb',]
+c_link_args = ['--target=arm-none-eabi', '-mcpu=cortex-m0plus', '-mfloat-abi=soft',  '-mthumb', ]
+cpp_args = ['--target=arm-none-eabi', '-mcpu=cortex-m0plus', '-mfloat-abi=soft',  '-mthumb',]
+cpp_link_args = ['--target=arm-none-eabi', '-mcpu=cortex-m0plus', '-mfloat-abi=soft',  '-mthumb', ]
+linker_paths = ['build/linker-scripts/stm/']
+linker_scripts = ['STM32F103VBIx_FLASH.ld']
+link_depends = ['build/linker-scripts/stm/STM32F103VBIx_FLASH.ld']
+
+[host_machine]
+system = 'none'
+cpu_family = 'arm'
+cpu = 'cortex-m0plus'
+endian = 'little'

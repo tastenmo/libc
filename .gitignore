@@ -5,6 +5,7 @@ cscope*out
 # Generated folders
 buildresults*
 build/gen/**
+build/*
 
 # Meson subprojects
 **/subprojects/**
