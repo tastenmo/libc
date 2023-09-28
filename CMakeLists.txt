@@ -47,7 +47,7 @@ function(target_linker_map target)
   get_target_property(map_dir ${target} BINARY_DIR)
   target_link_options(${target} PRIVATE ${GEN_MAP_FILE}${map_dir}/${target}.map)
   set_target_properties(${target} PROPERTIES
-    ADDITIONAL_CLEAN_FILES ${target}.map)
+    ADDITIONAL_CLEAN_FILES ${target}.map OUTPUT_NAME "${target}.elf")
 endfunction()
 
 if(ENABLE_COVERAGE)
